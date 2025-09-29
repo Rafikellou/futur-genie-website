@@ -1,196 +1,127 @@
-# 🚀 Futur Génie - Site Web
+# 🎓 Futur Génie - Site Web
 
-## 📋 Description
+Site web officiel de **Futur Génie**, plateforme éducative innovante qui révolutionne l'apprentissage en permettant aux enseignants de créer des exercices ludiques en moins de 30 secondes.
 
-Site web one-page pour **Futur Génie**, une plateforme éducative innovante qui permet aux enseignants de créer des exercices ludiques en moins de 30 secondes, directement liés aux leçons du jour.
+## 🚀 Aperçu du Projet
+
+Futur Génie est une plateforme éducative qui connecte enseignants, élèves et parents à travers des exercices personnalisés et ludiques. Ce site web présente la solution de manière convaincante pour les directeurs d'école et enseignants.
 
 ### 🎯 Objectifs
-
-- **Principal** : Convaincre les directeurs d'école et enseignants de créer un compte école
-- **Secondaire** : Rassurer les parents sur la valeur éducative de la plateforme
-
-## 🏗️ Structure du Site
-
-### Sections (dans l'ordre)
-
-1. **Hero Section** - Présentation principale avec CTA
-2. **Problème & Opportunité** - Les défis actuels de l'éducation
-3. **Solution** - Présentation de Futur Génie
-4. **Avantages par cible** - Bénéfices pour chaque acteur
-5. **Preuve sociale** - Témoignages et statistiques
-6. **Fonctionnalités** - Catalogue des fonctionnalités principales
-7. **Tarification** - Offre simple et transparente
-8. **Disponibilité technique** - Applications mobiles
-9. **FAQ** - Questions fréquentes avec accordéons
-10. **CTA Final** - Dernière incitation à l'action
-11. **Footer** - Liens légaux et contact
+- **Principal** : Convaincre directeurs d'école et enseignants de créer un compte école
+- **Secondaire** : Rassurer les parents sur la valeur éducative
 
 ## 🎨 Charte Graphique
 
 ### Couleurs
 - **Bleu nuit principal** : `#0E1A3A`
-- **Bleu nuit secondaire** : `#1A2A4A`
+- **Bleu nuit secondaire** : `#1A2A4A` 
 - **Bleu nuit tertiaire** : `#243454`
 - **Violet accent** : `#6C63FF`
 - **Orange accent** : `#FF6B35`
 - **Vert succès** : `#10B981`
 
 ### Typographie
-- **Titres et boutons** : Poppins (Google Fonts)
-- **Texte courant** : Inter (Google Fonts)
+- **Titres/Boutons** : Poppins
+- **Texte** : Inter
 
 ### Design System
-- **Border radius** : 16px pour les cartes, 50px pour les boutons
-- **Ombres** : Douces, max 30% d'opacité
-- **Espacements** : Système basé sur 16px (8px, 16px, 24px, 32px, 48px, 64px)
+- **Border-radius** : 16px (cartes), 50px (boutons)
+- **Ombres** : Douces, max 30% opacité
+- **Espacements** : Système 16px
 
-## 🛠️ Technologies Utilisées
+## 📱 Fonctionnalités
 
-- **HTML5** - Structure sémantique
-- **CSS3** - Styles avec variables CSS et Grid/Flexbox
-- **JavaScript ES6+** - Interactions et animations
-- **Google Fonts** - Typographie (Poppins & Inter)
+- ✅ Design responsive (mobile-first)
+- ✅ Images photoréalistes des personas
+- ✅ Animations et interactions modernes
+- ✅ Accordéons FAQ interactifs
+- ✅ Effets hover avancés
+- ✅ Optimisation SEO
 
-## ✨ Fonctionnalités
+## 🛠️ Installation & Utilisation
 
-### Interactions
-- ✅ Accordéons FAQ avec animations fluides
-- ✅ Animations au scroll (Intersection Observer)
-- ✅ Boutons avec effets hover/active/disabled
-- ✅ Confettis sur succès d'inscription
-- ✅ Scroll fluide entre sections
-- ✅ Messages de succès animés
+### Méthode simple
+```bash
+# Cloner le repository
+git clone https://github.com/Rafikellou/futur-genie-website.git
+cd futur-genie-website
 
-### Responsive Design
-- ✅ Mobile-first approach
-- ✅ Breakpoints : 360px, 480px, 768px, 1024px
-- ✅ Grilles adaptatives
-- ✅ Navigation optimisée tactile
-- ✅ Images et mockups responsifs
+# Ouvrir directement index.html dans un navigateur
+```
 
-### Accessibilité
-- ✅ Navigation au clavier
-- ✅ Focus states visibles
-- ✅ Respect des préférences utilisateur (reduced-motion)
-- ✅ Contraste élevé disponible
-- ✅ Structure sémantique HTML
+### Serveur local (recommandé)
+```bash
+# Python
+python -m http.server 8000
 
-### Performance
-- ✅ Lazy loading des images
-- ✅ Throttling des événements scroll
-- ✅ Préchargement des polices
-- ✅ CSS optimisé avec variables
-- ✅ JavaScript modulaire
-- ✅ Fallbacks automatiques pour images manquantes
-- ✅ Structure d'assets organisée
+# Node.js (si installé)
+npx serve .
 
-## 🚀 Installation et Utilisation
+# Accéder à http://localhost:8000
+```
 
-### Prérequis
-Aucun prérequis spécifique. Le site utilise uniquement des technologies web standards.
+## 📁 Structure du Projet
 
-### Lancement local
-1. Cloner ou télécharger les fichiers
-2. Ouvrir `index.html` dans un navigateur moderne
-3. Ou utiliser un serveur local :
-   ```bash
-   # Avec Python
-   python -m http.server 8000
-   
-   # Avec Node.js
-   npx serve . -p 8000
-   
-   # Avec PHP
-   php -S localhost:8000
-   ```
-
-### Structure des fichiers
 ```
 futur-genie-website/
-├── index.html          # Page principale
-├── styles.css          # Styles CSS
-├── scripts.js          # JavaScript
-├── README.md           # Documentation
-└── public/             # Assets graphiques
-    ├── images/         # Photos et illustrations
-    │   └── testimonials/   # Photos témoignages
-    ├── screenshots/    # Captures d'écran app
-    ├── mockups/        # Maquettes interface
-    ├── logos/          # Logos et identité
-    │   └── partner-schools/ # Logos écoles
-    └── icons/          # Icônes et pictogrammes
-        ├── features/       # Icônes fonctionnalités
-        ├── app-stores/     # Badges stores
-        └── social/         # Icônes réseaux sociaux
+├── index.html              # Page principale
+├── styles.css              # Styles CSS complets
+├── scripts.js              # JavaScript interactif
+├── README.md               # Documentation
+├── public/                 # Assets publics
+│   ├── images/            
+│   │   ├── personas/       # Images photoréalistes des personas
+│   │   │   ├── enfant-persona.jpg
+│   │   │   ├── professeur-persona.jpg
+│   │   │   └── parent-persona.jpg
+│   │   └── hero-illustration.png
+│   └── icons/             # Icônes et logos
+└── docs/                  # Documentation technique
 ```
 
-## 📱 Compatibilité
+## 🎭 Sections du Site
 
-### Navigateurs supportés
-- ✅ Chrome 80+
-- ✅ Firefox 75+
-- ✅ Safari 13+
-- ✅ Edge 80+
+1. **Hero Section** - Présentation principale
+2. **Problème & Opportunité** - Personas avec images photoréalistes
+3. **Solution** - Présentation de Futur Génie
+4. **Avantages par cible** - Bénéfices pour chaque acteur
+5. **Preuve sociale** - Témoignages et statistiques
+6. **Fonctionnalités** - Caractéristiques principales
+7. **Tarification** - Offre simple et transparente
+8. **Disponibilité technique** - Apps mobiles
+9. **FAQ** - Questions fréquentes interactives
+10. **CTA final** - Appel à l'action
+11. **Footer** - Liens et informations légales
 
-### Appareils testés
-- ✅ Desktop (1920x1080, 1366x768)
-- ✅ Tablette (768x1024, 1024x768)
-- ✅ Mobile (375x667, 414x896, 360x640)
+## 🎨 Images Générées
 
-## 🔧 Personnalisation
+Les images des personas ont été générées avec **MCP nanobanana** en style photoréaliste :
+- **Enfant-persona.jpg** - Élève frustré par les méthodes traditionnelles
+- **Professeur-persona.jpg** - Enseignant submergé par la charge de travail
+- **Parent-persona.jpg** - Parent inquiet pour l'éducation de son enfant
 
-### Modifier les couleurs
-Éditer les variables CSS dans `styles.css` :
-```css
-:root {
-    --primary-blue: #0E1A3A;
-    --accent-orange: #FF6B35;
-    /* ... autres couleurs */
-}
-```
+## 💻 Technologies Utilisées
 
-### Ajouter du contenu
-1. **Images** : Placer les assets dans le dossier `public/` selon la structure
-2. **Témoignages** : Ajouter photos dans `public/images/testimonials/`
-3. **Statistiques** : Mettre à jour les `.stat-number` et leurs animations
-4. **FAQ** : Ajouter des `.faq-item` avec questions/réponses
-5. **Logos partenaires** : Ajouter dans `public/logos/partner-schools/`
+- **HTML5** - Structure sémantique
+- **CSS3** - Variables CSS, Grid, Flexbox, animations
+- **JavaScript Vanilla** - Interactions et animations
+- **Design Responsive** - Mobile-first approach
+- **Optimisation SEO** - Meta tags et structure
 
-### Intégrations
-- **Analytics** : Ajouter Google Analytics dans `scripts.js`
-- **CRM** : Connecter les formulaires à votre système
-- **Chat** : Intégrer un widget de support client
+## 🚀 Déploiement
 
-## 🎯 Roadmap
+Le site est prêt pour le déploiement sur :
+- **GitHub Pages**
+- **Netlify** 
+- **Vercel**
+- **Tout hébergeur statique**
 
-### V1 (Actuel)
-- ✅ Homepage complète avec design et animations
-- ✅ Responsive design optimisé
-- ✅ Interactions JavaScript avancées
-- ✅ Hero image authentique avec éléments flottants
-- ✅ Cropping automatique du logo Gemini
+## 📞 Contact
 
-### V2 (Prochaine)
-- 🔄 Espace de connexion et gestion des comptes école
-- 🔄 Formulaires d'inscription fonctionnels
-- 🔄 Intégration backend/API
-
-### V3 (Future)
-- 📋 Blog/actualités/vidéos
-- 📋 Espace de démonstration interactif
-- 📋 Multilingue (anglais)
-
-## 📞 Support
-
-Pour toute question ou suggestion :
-- **Email** : support@futur-genie.fr
-- **Documentation** : Ce README
-- **Issues** : Créer une issue dans le projet
-
-## 📄 Licence
-
-© 2024 Futur Génie. Tous droits réservés.
+Pour toute question concernant le projet Futur Génie :
+- Email : support@futur-genie.fr
+- Site web : [En développement]
 
 ---
 
-**Développé avec ❤️ pour révolutionner l'éducation**
+**© 2024 Futur Génie. Tous droits réservés.**
