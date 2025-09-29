@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futur Génie - Construisons le potentiel de nos enfants</title>
+    <meta name="description" content="La seule plateforme où l'enseignant crée des exercices aidant les élèves à assimiler la leçon du jour. Les devoirs deviennent efficaces et amusants avec Futur Génie.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="public/icons/futur-genie-icon.ico">
+    <link rel="icon" type="image/svg+xml" href="public/logos/futur-genie-icon.svg">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="logo">
+                        <h1 class="logo-text">Futur Génie</h1>
+                    </div>
+                    <h2 class="hero-title">Construisons le <span class="highlight-word">potentiel</span> de nos enfants</h2>
+                    <p class="hero-subtitle">La seule plateforme où l'enseignant crée des exercices aidant les élèves à assimiler <span class="highlight-lesson">la leçon du jour</span>. Les devoirs deviennent <span class="highlight-benefits">efficaces et amusants</span>.</p>
+                    
+                    <div class="hero-cta">
+                        <button class="btn btn-primary">Créer un compte école gratuitement</button>
+                        <button class="btn btn-secondary">Découvrir la plateforme</button>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="public/images/hero-illustration.png" alt="Parent et enfant utilisant Futur Génie ensemble" class="hero-image" loading="eager">
+                        <div class="hero-image-overlay">
+                            <div class="floating-elements">
+                                <div class="floating-card lesson-card">
+                                    <div class="card-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="card-text">Leçon du jour, faite en classe</div>
+                                </div>
+                                <div class="floating-card home-card">
+                                    <div class="card-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="card-text">Revue à la maison en s'amusant</div>
+                                </div>
+                                <div class="floating-card progress-card">
+                                    <div class="card-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L20.71,8.71L23,11V6H16Z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="card-text">Progrès en temps réel</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problème & Opportunité -->
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <h2 class="section-title">L'éducation évolue, mais les outils restent figés</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="public/images/personas/enfant-persona.jpg" alt="Enfant concentré faisant ses devoirs" class="persona-image" loading="lazy">
+                        <!-- Fallback SVG si l'image n'est pas disponible -->
+                        <svg viewBox="0 0 120 120" class="persona-svg fallback-svg" style="display: none;">
+                            <circle cx="60" cy="45" r="25" fill="#E8E8E8" stroke="#CCCCCC" stroke-width="2"/>
+                            <path d="M35 35 Q60 20 85 35 Q85 25 60 25 Q35 25 35 35" fill="#8B4513"/>
+                            <ellipse cx="50" cy="42" rx="3" ry="2" fill="#333"/>
+                            <ellipse cx="70" cy="42" rx="3" ry="2" fill="#333"/>
+                            <path d="M47 40 L53 40" stroke="#666" stroke-width="1"/>
+                            <path d="M67 40 L73 40" stroke="#666" stroke-width="1"/>
+                            <path d="M52 52 Q60 48 68 52" stroke="#666" stroke-width="2" fill="none"/>
+                            <rect x="45" y="70" width="30" height="35" rx="5" fill="#4A90E2"/>
+                            <rect x="35" y="75" width="8" height="25" rx="4" fill="#E8E8E8"/>
+                            <rect x="77" y="75" width="8" height="25" rx="4" fill="#E8E8E8"/>
+                            <rect x="30" y="95" width="12" height="8" rx="1" fill="#8B4513"/>
+                            <line x1="36" y1="95" x2="36" y2="103" stroke="#654321" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <h3>Élèves</h3>
+                    <p>Difficulté à rester motivés avec les méthodes d'apprentissage traditionnelles</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="public/images/personas/professeur-persona.jpg" alt="Professeur submergé par les tâches" class="persona-image" loading="lazy">
+                        <!-- Fallback SVG si l'image n'est pas disponible -->
+                        <svg viewBox="0 0 120 120" class="persona-svg fallback-svg" style="display: none;">
+                            <circle cx="60" cy="45" r="25" fill="#E8E8E8" stroke="#CCCCCC" stroke-width="2"/>
+                            <path d="M35 35 Q60 15 85 35 Q85 25 60 20 Q35 25 35 35" fill="#654321"/>
+                            <path d="M45 25 L47 20" stroke="#654321" stroke-width="2"/>
+                            <path d="M75 25 L77 20" stroke="#654321" stroke-width="2"/>
+                            <ellipse cx="50" cy="44" rx="4" ry="3" fill="#DDD"/>
+                            <ellipse cx="70" cy="44" rx="4" ry="3" fill="#DDD"/>
+                            <ellipse cx="50" cy="42" rx="2" ry="2" fill="#333"/>
+                            <ellipse cx="70" cy="42" rx="2" ry="2" fill="#333"/>
+                            <path d="M46 38 L54 40" stroke="#666" stroke-width="2"/>
+                            <path d="M66 40 L74 38" stroke="#666" stroke-width="2"/>
+                            <path d="M54 52 Q60 50 66 52" stroke="#666" stroke-width="2" fill="none"/>
+                            <rect x="45" y="70" width="30" height="35" rx="5" fill="#2C3E50"/>
+                            <rect x="35" y="75" width="8" height="25" rx="4" fill="#E8E8E8"/>
+                            <rect x="77" y="75" width="8" height="25" rx="4" fill="#E8E8E8"/>
+                            <rect x="25" y="85" width="15" height="12" rx="1" fill="#FFF"/>
+                            <rect x="26" y="86" width="13" height="10" rx="1" fill="#FFF"/>
+                            <rect x="27" y="87" width="11" height="8" rx="1" fill="#FFF"/>
+                            <path d="M28 89 L35 89" stroke="#E74C3C" stroke-width="1"/>
+                            <path d="M28 91 L33 91" stroke="#E74C3C" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <h3>Professeurs</h3>
+                    <p>Submergés par la charge de travail pour créer des contenus engageants</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="public/images/personas/parent-persona.jpg" alt="Parent inquiet pour la réussite de son enfant" class="persona-image" loading="lazy">
+                        <!-- Fallback SVG si l'image n'est pas disponible -->
+                        <svg viewBox="0 0 120 120" class="persona-svg fallback-svg" style="display: none;">
+                            <circle cx="60" cy="45" r="25" fill="#E8E8E8" stroke="#CCCCCC" stroke-width="2"/>
+                            <path d="M35 35 Q60 18 85 35 Q85 25 60 22 Q35 25 35 35" fill="#8B4513"/>
+                            <ellipse cx="50" cy="42" rx="3" ry="3" fill="#333"/>
+                            <ellipse cx="70" cy="42" rx="3" ry="3" fill="#333"/>
+                            <path d="M46 37 L54 39" stroke="#666" stroke-width="2"/>
+                            <path d="M66 39 L74 37" stroke="#666" stroke-width="2"/>
+                            <path d="M54 53 Q60 51 66 53" stroke="#666" stroke-width="2" fill="none"/>
+                            <rect x="45" y="70" width="30" height="35" rx="5" fill="#27AE60"/>
+                            <rect x="35" y="75" width="8" height="20" rx="4" fill="#E8E8E8" transform="rotate(15 39 85)"/>
+                            <rect x="77" y="75" width="8" height="20" rx="4" fill="#E8E8E8" transform="rotate(-15 81 85)"/>
+                            <text x="75" y="25" font-family="Arial" font-size="16" fill="#E74C3C" font-weight="bold">?</text>
+                        </svg>
+                    </div>
+                    <h3>Parents</h3>
+                    <p>Inquiets de ne pas pouvoir suivre les progrès et accompagner efficacement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="solution-section">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2 class="section-title">Qu'est-ce que Futur Génie ?</h2>
+                    
+                    <div class="solution-points">
+                        <div class="solution-point">
+                            <div class="point-number">1</div>
+                            <p>Les enseignants créent en moins de 30 secondes des exercices ludiques, directement liés aux leçons du jour.</p>
+                        </div>
+                        
+                        <div class="solution-point">
+                            <div class="point-number">2</div>
+                            <p>Les élèves jouent le soir à ces activités, en complément ou à la place des devoirs classiques.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-visual">
+                    <div class="creation-mockup">
+                        <img src="public/screenshots/app-creation-exercise.png" alt="Création d'exercice en 30 secondes" class="creation-image" loading="lazy">
+                        <!-- Fallback si pas d'image -->
+                        <div class="mockup-window" style="display: none;">
+                            <div class="window-header">
+                                <div class="window-controls">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="window-title">Création d'exercice</div>
+                            </div>
+                            <div class="window-content">
+                                <div class="form-field">
+                                    <label>Matière</label>
+                                    <div class="input-field">Mathématiques</div>
+                                </div>
+                                <div class="form-field">
+                                    <label>Leçon du jour</label>
+                                    <div class="input-field">Les fractions</div>
+                                </div>
+                                <div class="create-btn">Créer l'exercice</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages par cible -->
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Des avantages pour chaque acteur</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏫</div>
+                    <h3>Directeurs d'école</h3>
+                    <ul>
+                        <li>Améliore les résultats et la réputation de l'école</li>
+                        <li>Déploiement simple par classe</li>
+                        <li>Suivi des performances globales</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">👩‍🏫</div>
+                    <h3>Professeurs</h3>
+                    <ul>
+                        <li>Création d'exercices en moins de 30 secondes</li>
+                        <li>Activités ludiques et motivantes pour les enfants</li>
+                        <li>Suivi clair des progrès de chaque élève</li>
+                    </ul>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Parents</h3>
+                    <ul>
+                        <li>Visualisation claire de la progression</li>
+                        <li>Complément éducatif ludique à la maison</li>
+                        <li>Enfants qui atteignent leur plein potentiel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preuve sociale -->
+    <section id="social-proof" class="social-proof-section">
+        <div class="container">
+            <h2 class="section-title">Ils nous font confiance</h2>
+            
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Futur Génie a révolutionné notre approche pédagogique. Les élèves sont plus motivés et les résultats parlent d'eux-mêmes."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="public/images/testimonials/marie-dubois.jpg" alt="Marie Dubois" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <div class="author-name">Marie Dubois</div>
+                            <div class="author-title">Directrice, École Primaire Saint-Martin</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Créer des exercices personnalisés n'a jamais été aussi simple. Mes élèves adorent et moi aussi !"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="public/images/testimonials/pierre-martin.jpg" alt="Pierre Martin" class="author-avatar" loading="lazy">
+                        <div class="author-info">
+                            <div class="author-name">Pierre Martin</div>
+                            <div class="author-title">Enseignant CE2, École des Tilleuls</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Écoles partenaires</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15 000+</div>
+                    <div class="stat-label">Élèves actifs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Satisfaction enseignants</div>
+                </div>
+            </div>
+            
+            <div class="partner-logos">
+                <img src="public/logos/partner-schools/ecole-saint-martin.png" alt="École Saint-Martin" class="partner-logo" loading="lazy">
+                <img src="public/logos/partner-schools/ecole-des-tilleuls.png" alt="École des Tilleuls" class="partner-logo" loading="lazy">
+                <img src="public/logos/partner-schools/college-victor-hugo.png" alt="Collège Victor Hugo" class="partner-logo" loading="lazy">
+                <!-- Fallback si pas d'images -->
+                <div class="logo-placeholder" style="display: none;">École A</div>
+                <div class="logo-placeholder" style="display: none;">École B</div>
+                <div class="logo-placeholder" style="display: none;">École C</div>
+                <div class="logo-placeholder" style="display: none;">École D</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fonctionnalités -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Fonctionnalités principales</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="public/icons/features/exercise-icon.svg" alt="Exercices" class="feature-icon-img" loading="lazy">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Exercices enseignants (&lt;30s)</h3>
+                    <p>Création rapide d'exercices directement liés aux leçons du jour</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Catalogue libre service</h3>
+                    <p>Exercices prêts selon le niveau académique de vos élèves</p>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="public/icons/features/stories-icon.svg" alt="Histoires" class="feature-icon-img" loading="lazy">
+                    <div class="feature-icon">📖</div>
+                    <h3>Histoires à lire & écouter</h3>
+                    <p>Développer l'imaginaire et la compréhension écrite</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🇬🇧</div>
+                    <h3>Apprentissage de l'anglais</h3>
+                    <p>Découverte ludique de la langue anglaise</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Énigmes & jeux éducatifs</h3>
+                    <p>Stimulation logique et cognitive par le jeu</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎹</div>
+                    <h3>Musique (piano)</h3>
+                    <p>Découverte artistique et développement sensoriel</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Données claires</h3>
+                    <p>Progression visualisée simplement pour tous</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Suivi personnalisé</h3>
+                    <p>Adaptation aux besoins de chaque élève</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarification -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="pricing-card">
+                <h2 class="section-title">Une offre simple et transparente</h2>
+                
+                <div class="pricing-content">
+                    <div class="pricing-highlight">
+                        <div class="price-badge">Essai gratuit</div>
+                        <div class="price-duration">3 mois sans engagement</div>
+                    </div>
+                    
+                    <div class="pricing-details">
+                        <div class="price-main">
+                            <span class="price-amount">79€</span>
+                            <span class="price-period">/an par classe</span>
+                        </div>
+                        <div class="price-subtitle">Jusqu'à 30 parents par classe</div>
+                        <div class="price-note">Paiement au prorata des mois restants de l'année scolaire</div>
+                    </div>
+                    
+                    <button class="btn btn-primary pricing-cta">Créer un compte école gratuitement</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disponibilité technique -->
+    <section id="availability" class="availability-section">
+        <div class="container">
+            <div class="availability-content">
+                <div class="availability-text">
+                    <h2 class="section-title">Disponible partout, accessible à tous</h2>
+                    <p>Disponible sur iOS et Android. Le compte école est créé et géré directement depuis ce site.</p>
+                    
+                    <div class="app-stores">
+                        <a href="#" class="store-badge">
+                            <img src="public/icons/app-stores/app-store-badge.png" alt="Télécharger sur l'App Store" class="store-badge-img" loading="lazy">
+                        </a>
+                        
+                        <a href="#" class="store-badge">
+                            <img src="public/icons/app-stores/google-play-badge.png" alt="Disponible sur Google Play" class="store-badge-img" loading="lazy">
+                        </a>
+                        
+                        <!-- Fallback si pas d'images -->
+                        <div class="store-badge-fallback" style="display: none;">
+                            <div class="store-icon">📱</div>
+                            <div class="store-text">
+                                <div class="store-subtitle">Télécharger sur</div>
+                                <div class="store-title">App Store</div>
+                            </div>
+                        </div>
+                        
+                        <div class="store-badge-fallback" style="display: none;">
+                            <div class="store-icon">🤖</div>
+                            <div class="store-text">
+                                <div class="store-subtitle">Disponible sur</div>
+                                <div class="store-title">Google Play</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="availability-visual">
+                    <div class="phone-mockup">
+                        <img src="public/mockups/mobile-mockup.png" alt="Application mobile Futur Génie" class="phone-mockup-img" loading="lazy">
+                        <!-- Fallback si pas d'image -->
+                        <div class="phone-frame" style="display: none;">
+                            <div class="phone-screen">
+                                <div class="phone-content">
+                                    <div class="app-header">Futur Génie</div>
+                                    <div class="app-cards">
+                                        <div class="app-card"></div>
+                                        <div class="app-card"></div>
+                                        <div class="app-card"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Questions fréquentes</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>L'outil est-il compliqué pour les enseignants ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pas du tout ! Futur Génie a été conçu pour être ultra-simple. Un enseignant peut créer un exercice personnalisé en moins de 30 secondes. L'interface est intuitive et ne nécessite aucune formation technique.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Les parents doivent-ils payer ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Non, les parents n'ont rien à payer. C'est l'école qui souscrit à l'abonnement pour toute la classe. Les parents téléchargent simplement l'application gratuite et reçoivent un code d'accès de l'enseignant.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Peut-on tester avant de payer ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolument ! Nous offrons 3 mois d'essai gratuit sans engagement. Cela vous permet de tester toutes les fonctionnalités avec vos élèves et de constater les bénéfices avant de vous engager.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Les données des enfants sont-elles protégées ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>La protection des données est notre priorité absolue. Nous respectons le RGPD et toutes les réglementations en vigueur. Les données sont chiffrées, sécurisées et ne sont jamais partagées avec des tiers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Comment les élèves accèdent-ils aux exercices ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>L'enseignant crée les exercices depuis son interface web et les élèves y accèdent via l'application mobile avec un code classe. Les parents peuvent suivre les progrès depuis leur propre espace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="final-cta" class="final-cta-section">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2>Donnez à vos enseignants et vos élèves l'outil qu'ils méritent</h2>
+                <button class="btn btn-primary final-cta-btn">Créer un compte école gratuitement</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <h3>Futur Génie</h3>
+                        <p>Construisons ensemble le potentiel de nos enfants</p>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Légal</h4>
+                            <ul>
+                                <li><a href="#mentions">Mentions légales</a></li>
+                                <li><a href="#privacy">Politique de confidentialité</a></li>
+                                <li><a href="#terms">Conditions d'utilisation</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Support</h4>
+                            <ul>
+                                <li><a href="mailto:support@futur-genie.fr">support@futur-genie.fr</a></li>
+                                <li><a href="#faq">FAQ</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <img src="public/icons/social/facebook.svg" alt="Facebook" class="social-icon" loading="lazy">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="public/icons/social/twitter.svg" alt="Twitter" class="social-icon" loading="lazy">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="public/icons/social/instagram.svg" alt="Instagram" class="social-icon" loading="lazy">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="public/icons/social/linkedin.svg" alt="LinkedIn" class="social-icon" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Futur Génie. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html>

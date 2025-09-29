@@ -1,0 +1,27 @@
+{
+  "name": "futur-genie-image-generator",
+  "version": "1.0.0",
+  "description": "Générateur d'images pour le site Futur Génie utilisant l'API Gemini",
+  "main": "generate-image.js",
+  "scripts": {
+    "generate": "node generate-image.js",
+    "install-deps": "npm install",
+    "test": "node generate-image.js hero 'Test de génération' illustration"
+  },
+  "keywords": [
+    "gemini",
+    "ai",
+    "image-generation",
+    "education",
+    "futur-genie"
+  ],
+  "author": "Futur Génie Team",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.17.1",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
