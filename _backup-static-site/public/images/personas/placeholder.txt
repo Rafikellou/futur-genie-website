@@ -1,0 +1,25 @@
+# Images Placeholder
+
+En attendant la génération des vraies images avec l'API Gemini, vous pouvez :
+
+1. Utiliser les descriptions dans personas-summary.md avec un générateur d'images IA
+2. Ou utiliser des images temporaires depuis des sites comme Unsplash :
+
+## Images temporaires suggérées :
+
+### Enfant concentré :
+- Recherche : "child doing homework concentrated"
+- Exemple : https://unsplash.com/s/photos/child-homework
+
+### Professeur submergé :
+- Recherche : "teacher overwhelmed papers desk"
+- Exemple : https://unsplash.com/s/photos/teacher-desk-papers
+
+### Parent inquiet :
+- Recherche : "parent worried child homework"
+- Exemple : https://unsplash.com/s/photos/parent-child-homework
+
+Nommez les fichiers :
+- enfant-persona.jpg
+- professeur-persona.jpg  
+- parent-persona.jpg

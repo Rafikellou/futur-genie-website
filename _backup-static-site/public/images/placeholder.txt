@@ -1,0 +1,47 @@
+# Placeholders pour les images
+
+Ce dossier contiendra les images réelles du site Futur Génie.
+
+## Images prioritaires à ajouter :
+
+### Témoignages
+- marie-dubois.jpg (150x150px, photo professionnelle)
+- pierre-martin.jpg (150x150px, photo professionnelle)
+
+### Mockups
+- desktop-mockup.png (Interface web enseignant)
+- mobile-mockup.png (Application mobile)
+
+### Screenshots
+- app-creation-exercise.png (Processus de création d'exercice)
+- app-home.png (Écran d'accueil application)
+
+### Logos partenaires
+- ecole-saint-martin.png
+- ecole-des-tilleuls.png
+- college-victor-hugo.png
+
+### Badges stores
+- app-store-badge.png
+- google-play-badge.png
+
+### Icônes fonctionnalités (SVG)
+- exercise-icon.svg
+- stories-icon.svg
+- english-icon.svg
+- music-icon.svg
+- puzzles-icon.svg
+- analytics-icon.svg
+
+### Icônes réseaux sociaux (SVG)
+- facebook.svg
+- twitter.svg
+- instagram.svg
+- linkedin.svg
+
+### Logo principal
+- futur-genie-logo.svg (logo complet avec texte)
+- futur-genie-icon.svg (icône seule)
+- futur-genie-icon.ico (favicon)
+
+Une fois ces assets ajoutés, le site aura un aspect beaucoup plus professionnel et engageant.
