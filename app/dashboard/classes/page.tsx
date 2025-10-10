@@ -4,6 +4,8 @@ import { useAuth } from "@/lib/hooks/useAuth";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { ClassroomsList } from "@/components/dashboard/ClassroomsList";
 
+export const dynamic = 'force-dynamic';
+
 export default function ClassesPage() {
   const { user, loading } = useAuth();
 

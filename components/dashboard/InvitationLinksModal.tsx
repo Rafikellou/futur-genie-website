@@ -25,6 +25,7 @@ export function InvitationLinksModal({ classroom, userId, onClose }: InvitationL
 
   useEffect(() => {
     loadLinks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [classroom.id]);
 
   const loadLinks = async () => {

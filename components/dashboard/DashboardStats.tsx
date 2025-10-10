@@ -25,6 +25,7 @@ export function DashboardStats({ schoolId }: DashboardStatsProps) {
 
   useEffect(() => {
     loadStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schoolId]);
 
   const loadStats = async () => {

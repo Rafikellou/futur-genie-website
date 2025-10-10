@@ -10,7 +10,7 @@ interface DashboardLayoutProps {
   user: User;
 }
 
-export function DashboardLayout({ children, user }: DashboardLayoutProps) {
+export function DashboardLayout({ children }: DashboardLayoutProps) {
   const pathname = usePathname();
   const { signOut } = useAuth();
 

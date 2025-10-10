@@ -18,6 +18,7 @@ export function ClassroomsList({ schoolId, userId }: ClassroomsListProps) {
 
   useEffect(() => {
     loadClassrooms();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schoolId]);
 
   const loadClassrooms = async () => {

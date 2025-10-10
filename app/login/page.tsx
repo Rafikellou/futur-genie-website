@@ -1,6 +1,8 @@
 import { LoginForm } from "@/components/auth/LoginForm";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: "Connexion - Futur Génie",
   description: "Connectez-vous à votre compte directeur Futur Génie",
