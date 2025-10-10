@@ -1,5 +1,5 @@
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { HeaderV2 } from "@/components/layout/HeaderV2";
+import { FooterV2 } from "@/components/layout/FooterV2";
 
 export default function PublicLayout({
   children,
@@ -8,9 +8,9 @@ export default function PublicLayout({
 }) {
   return (
     <>
-      <Header />
+      <HeaderV2 />
       <main className="pt-20">{children}</main>
-      <Footer />
+      <FooterV2 />
     </>
   );
 }
