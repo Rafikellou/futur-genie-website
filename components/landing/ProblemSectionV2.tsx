@@ -23,7 +23,7 @@ export function ProblemSectionV2() {
     <section className="section section-alt">
       <div className="wrapper">
         <h2 className="heading-lg text-center" style={{ marginBottom: "4rem" }}>
-          L'éducation évolue, mais les outils restent figés
+          L&apos;éducation évolue, mais les outils restent figés
         </h2>
 
         <div className="grid-3">

@@ -16,7 +16,7 @@ export function HeroSectionV2() {
             </h1>
             
             <p className="body-lg text-muted" style={{ marginBottom: "3rem", maxWidth: "540px" }}>
-              La seule plateforme où l'enseignant crée des exercices aidant
+              La seule plateforme où l&apos;enseignant crée des exercices aidant
               les élèves à assimiler{" "}
               <span style={{ color: "var(--accent-purple)", fontWeight: 600 }}>
                 la leçon du jour
@@ -69,7 +69,7 @@ export function HeroSectionV2() {
               >
                 <span style={{ fontSize: "1.75rem" }}>🏠</span>
                 <span className="body-sm" style={{ fontWeight: 600, fontSize: "0.8rem", lineHeight: 1.3 }}>
-                  Revue à la maison en s'amusant
+                  Revue à la maison en s&apos;amusant
                 </span>
               </div>
 

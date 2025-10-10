@@ -6,7 +6,7 @@ export function SolutionSectionV2() {
           {/* Left: Text */}
           <div style={{ maxWidth: "600px" }}>
             <h2 className="heading-lg" style={{ marginBottom: "2.5rem" }}>
-              Qu'est-ce que Futur Génie ?
+              Qu&apos;est-ce que Futur Génie ?
             </h2>
 
             <div className="space-y-md">

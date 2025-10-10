@@ -39,10 +39,10 @@ export function PricingSectionV2() {
                   <span className="heading-sm text-muted">/an par classe</span>
                 </div>
                 <p className="body-md text-muted" style={{ marginBottom: "0.5rem" }}>
-                  Jusqu'à 30 parents par classe
+                  Jusqu&apos;à 30 parents par classe
                 </p>
                 <p className="body-sm text-muted">
-                  Paiement au prorata des mois restants de l'année scolaire
+                  Paiement au prorata des mois restants de l&apos;année scolaire
                 </p>
               </div>
 

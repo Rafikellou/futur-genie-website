@@ -28,7 +28,7 @@ export function FooterV2() {
                 Politique de confidentialité
               </Link>
               <Link href="/conditions" className="body-md text-muted" style={{ textDecoration: "none" }}>
-                Conditions d'utilisation
+                Conditions d&apos;utilisation
               </Link>
             </div>
           </div>
