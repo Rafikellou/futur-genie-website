@@ -286,6 +286,35 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: var(--gap-lg);
 }
 
+/* ===== FORM INPUTS ===== */
+.input-field {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.input-field:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.input-field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* ===== HERO SECTION ===== */
 .hero-section {
   min-height: 100vh;
