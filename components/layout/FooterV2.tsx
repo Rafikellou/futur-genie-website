@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function FooterV2() {
   return (
@@ -7,9 +8,29 @@ export function FooterV2() {
         <div className="grid-3" style={{ marginBottom: "3rem" }}>
           {/* Logo & Description */}
           <div>
-            <h3 className="heading-sm" style={{ marginBottom: "1rem" }}>
-              Futur Génie
-            </h3>
+            <Link 
+              href="/" 
+              style={{ 
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                marginBottom: "1rem"
+              }}
+            >
+              <Image 
+                src="/logos/logo-principal.png"
+                alt="Futur Génie"
+                width={40}
+                height={40}
+                style={{ 
+                  objectFit: "contain"
+                }}
+              />
+              <h3 className="heading-sm" style={{ margin: 0 }}>
+                Futur Génie
+              </h3>
+            </Link>
             <p className="body-md text-muted">
               Construisons ensemble le potentiel de nos enfants
             </p>

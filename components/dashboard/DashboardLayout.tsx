@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/hooks/useAuth";
 import type { User } from "@/lib/types/database";
@@ -28,8 +29,25 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         padding: "1.5rem 0"
       }}>
         <div className="wrapper" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link href="/dashboard" className="heading-sm" style={{ textDecoration: "none", color: "white" }}>
-            Futur Génie
+          <Link 
+            href="/dashboard" 
+            style={{ 
+              textDecoration: "none", 
+              display: "flex", 
+              alignItems: "center", 
+              gap: "0.75rem" 
+            }}
+          >
+            <Image 
+              src="/logos/logo-principal.png"
+              alt="Futur Génie"
+              width={40}
+              height={40}
+              style={{ objectFit: "contain" }}
+            />
+            <span className="heading-sm" style={{ color: "white", margin: 0 }}>
+              Futur Génie
+            </span>
           </Link>
           <button
             onClick={signOut}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export function HeaderV2() {
   return (
@@ -26,8 +27,28 @@ export function HeaderV2() {
           }}
         >
           {/* Logo */}
-          <Link href="/" style={{ textDecoration: "none" }}>
-            <h1 className="heading-sm gradient-text">Futur Génie</h1>
+          <Link 
+            href="/" 
+            style={{ 
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.75rem"
+            }}
+          >
+            <Image 
+              src="/logos/logo-principal.png"
+              alt="Futur Génie"
+              width={50}
+              height={50}
+              style={{ 
+                objectFit: "contain"
+              }}
+              priority
+            />
+            <h1 className="heading-sm gradient-text" style={{ margin: 0 }}>
+              Futur Génie
+            </h1>
           </Link>
 
           {/* Navigation */}
