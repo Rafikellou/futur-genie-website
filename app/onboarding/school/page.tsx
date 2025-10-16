@@ -80,7 +80,7 @@ export default function SchoolOnboardingPage() {
         throw new Error("Données utilisateur non disponibles");
       }
 
-      console.log("🏫 Tentative de création d'école avec user:", {
+      console.log("🏫 Appel de l'Edge Function pour créer l'école:", {
         userId: currentUser.id,
         userRole: currentUser.role,
         schoolName: schoolName
@@ -93,51 +93,30 @@ export default function SchoolOnboardingPage() {
       }
       console.log("✅ Session active:", session.user.id);
 
-      // Re-vérifier que l'utilisateur existe dans public.users (établir le contexte RLS)
-      const { data: userCheck, error: userCheckError } = await supabase
-        .from("users")
-        .select("id, role")
-        .eq("id", currentUser.id)
-        .single();
+      // Appeler l'Edge Function director_onboarding_complete
+      const { data, error } = await supabase.functions.invoke('director_onboarding_complete', {
+        body: {
+          schoolName: schoolName,
+          fullName: currentUser.full_name
+        }
+      });
 
-      if (userCheckError || !userCheck) {
-        console.error("❌ Erreur vérification user:", userCheckError);
-        throw new Error("Impossible de vérifier votre compte. Veuillez vous reconnecter.");
+      if (error) {
+        console.error("❌ Erreur Edge Function:", error);
+        throw new Error(error.message || "Erreur lors de la création de l'école");
       }
 
-      if (userCheck.role !== "DIRECTOR") {
-        throw new Error("Vous devez être directeur pour créer une école.");
+      if (!data?.success) {
+        console.error("❌ Réponse Edge Function:", data);
+        throw new Error(data?.error || "Erreur lors de la création de l'école");
       }
 
-      console.log("✅ Contexte RLS établi pour user:", userCheck);
+      console.log("✅ École créée avec succès:", data);
 
-      // 1. Créer l'école (RLS OK car currentUser existe dans public.users avec role DIRECTOR)
-      const { data: schoolData, error: schoolError } = await supabase
-        .from("schools")
-        .insert([{ name: schoolName }])
-        .select()
-        .single();
-
-      if (schoolError) {
-        console.error("Erreur création école:", schoolError);
-        throw new Error(schoolError.message || "Impossible de créer l'école");
-      }
-
-      // 2. Mettre à jour l'utilisateur avec le school_id
-      const { error: updateError } = await supabase
-        .from("users")
-        .update({ school_id: schoolData.id })
-        .eq("id", currentUser.id);
-
-      if (updateError) {
-        console.error("Erreur mise à jour user:", updateError);
-        throw new Error("École créée mais impossible de la lier à votre compte");
-      }
-
-      // 3. Attendre un peu pour que la base de données se synchronise
+      // Attendre un peu pour que la base de données se synchronise
       await new Promise(resolve => setTimeout(resolve, 500));
 
-      // 4. Rediriger vers le dashboard
+      // Rediriger vers le dashboard
       router.push("/dashboard");
     } catch (err) {
       console.error("Erreur lors de la création de l'école:", err);
