@@ -69,9 +69,16 @@ async function diagnoseRLS() {
   // 3. Vérifier les politiques RLS sur classrooms
   console.log('\n🔐 3. POLITIQUES RLS SUR LA TABLE CLASSROOMS\n');
   
-  const { data: policies, error: policiesError } = await supabase
-    .rpc('get_policies_for_table', { table_name: 'classrooms' })
-    .catch(() => ({ data: null, error: { message: 'Fonction RPC non disponible' } }));
+  let policies = null;
+  let policiesError = null;
+  
+  try {
+    const result = await supabase.rpc('get_policies_for_table', { table_name: 'classrooms' });
+    policies = result.data;
+    policiesError = result.error;
+  } catch (err) {
+    policiesError = { message: 'Fonction RPC non disponible' };
+  }
 
   if (policiesError || !policies) {
     console.log('⚠️ Impossible de récupérer les politiques via RPC');
@@ -79,7 +86,7 @@ async function diagnoseRLS() {
     console.log('   SELECT * FROM pg_policies WHERE tablename = \'classrooms\';');
   } else {
     console.log('✅ Politiques trouvées:');
-    policies.forEach((policy: any) => {
+    policies.forEach((policy: Record<string, unknown>) => {
       console.log(`\n   - ${policy.policyname}`);
       console.log(`     Commande: ${policy.cmd}`);
       console.log(`     USING: ${policy.qual || 'NULL'}`);
@@ -165,7 +172,7 @@ async function diagnoseRLS() {
       console.log('ℹ️ Aucune classe existante');
     } else {
       console.log(`✅ ${classrooms.length} classe(s) trouvée(s):`);
-      classrooms.forEach((classroom: any) => {
+      classrooms.forEach((classroom: Record<string, unknown>) => {
         console.log(`   - ${classroom.name} (${classroom.grade})`);
       });
     }

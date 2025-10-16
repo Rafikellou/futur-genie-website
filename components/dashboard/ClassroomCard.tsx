@@ -8,12 +8,11 @@ import { EditClassroomModal } from "./EditClassroomModal";
 
 interface ClassroomCardProps {
   classroom: Classroom;
-  userId: string;
   onDeleted: (classroomId: string) => void;
   onUpdated: () => void;
 }
 
-export function ClassroomCard({ classroom, userId, onDeleted, onUpdated }: ClassroomCardProps) {
+export function ClassroomCard({ classroom, onDeleted, onUpdated }: ClassroomCardProps) {
   const [showInviteModal, setShowInviteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [deleting, setDeleting] = useState(false);

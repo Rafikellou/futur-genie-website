@@ -86,9 +86,8 @@ export function ClassroomsList({ schoolId, userId }: ClassroomsListProps) {
             <ClassroomCard
               key={classroom.id}
               classroom={classroom}
-              userId={userId}
               onDeleted={handleClassroomDeleted}
-              onUpdated={handleClassroomUpdated}
+              onUpdated={loadClassrooms}
             />
           ))}
         </div>
