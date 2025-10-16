@@ -166,7 +166,7 @@ export default function DebugUserPage() {
               <strong>School ID:</strong> {publicUser.school_id ? (
                 <span style={{ color: "#10b981" }}>✅ {publicUser.school_id}</span>
               ) : (
-                <span style={{ color: "#ef4444" }}>❌ NULL (PAS D'ÉCOLE ASSIGNÉE)</span>
+                <span style={{ color: "#ef4444" }}>❌ NULL (PAS D&apos;ÉCOLE ASSIGNÉE)</span>
               )}
             </div>
             <div style={{ marginBottom: "0.5rem" }}>
@@ -201,7 +201,7 @@ export default function DebugUserPage() {
             </div>
           ) : (
             <p className="body-md" style={{ color: "#ef4444" }}>
-              ❌ École introuvable (school_id existe mais l'école n'existe pas dans la base)
+              ❌ École introuvable (school_id existe mais l&apos;école n&apos;existe pas dans la base)
             </p>
           )
         ) : (
@@ -246,10 +246,10 @@ export default function DebugUserPage() {
                 ⚠️ PROBLÈME DÉTECTÉ
               </p>
               <p className="body-sm" style={{ color: "#ef4444", marginTop: "0.5rem" }}>
-                Votre school_id pointe vers une école qui n'existe pas dans la base de données.
+                Votre school_id pointe vers une école qui n&apos;existe pas dans la base de données.
               </p>
               <p className="body-sm" style={{ color: "#ef4444", marginTop: "0.5rem" }}>
-                <strong>Solution :</strong> Contactez l'administrateur ou réinitialisez votre profil.
+                <strong>Solution :</strong> Contactez l&apos;administrateur ou réinitialisez votre profil.
               </p>
             </div>
           )}
