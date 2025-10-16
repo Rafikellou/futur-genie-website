@@ -116,7 +116,18 @@ export default function SchoolOnboardingPage() {
 
       console.log("✅ École créée avec succès:", data);
 
-      // Attendre un peu pour que la base de données se synchronise
+      // Forcer le refresh du JWT pour récupérer les app_metadata mises à jour (role, school_id)
+      console.log("🔄 Rafraîchissement de la session JWT...");
+      const { error: refreshError } = await supabase.auth.refreshSession();
+      
+      if (refreshError) {
+        console.warn("⚠️ Erreur lors du refresh JWT:", refreshError);
+        // Ne pas bloquer la redirection, mais logger l'erreur
+      } else {
+        console.log("✅ Session JWT rafraîchie avec succès");
+      }
+
+      // Attendre un peu pour que la synchronisation soit complète
       await new Promise(resolve => setTimeout(resolve, 500));
 
       // Rediriger vers le dashboard

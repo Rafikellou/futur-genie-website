@@ -49,40 +49,38 @@ export function InvitationLinksModal({ classroom, userId, onClose }: InvitationL
   const createLink = async (role: UserRole) => {
     setCreating(role);
     try {
-      // Générer un token unique
-      const token = generateToken();
+      console.log("🚀 Création de lien d'invitation via Edge Function");
+      console.log("Données:", { classroom_id: classroom.id, intended_role: role });
+
+      // Appeler l'Edge Function generate_invitation_link
+      const { data, error } = await supabase.functions.invoke('generate_invitation_link', {
+        body: {
+          classroom_id: classroom.id,
+          intended_role: role,
+        },
+      });
+
+      if (error) {
+        console.error("❌ Erreur Edge Function:", error);
+        throw new Error(error.message || "Erreur lors de la création du lien");
+      }
+
+      if (data?.error) {
+        console.error("❌ Erreur retournée par la fonction:", data.error);
+        throw new Error(data.error);
+      }
+
+      console.log("✅ Lien d'invitation créé/récupéré avec succès:", data);
       
-      // Expiration dans 30 jours
-      const expiresAt = new Date();
-      expiresAt.setDate(expiresAt.getDate() + 30);
-
-      const { error } = await supabase
-        .from("invitation_links")
-        .insert([
-          {
-            school_id: classroom.school_id,
-            classroom_id: classroom.id,
-            token,
-            expires_at: expiresAt.toISOString(),
-            created_by: userId,
-            intended_role: role,
-          },
-        ]);
-
-      if (error) throw error;
+      // Recharger la liste des liens
       await loadLinks();
     } catch (error) {
-      console.error("Erreur de création du lien:", error);
-      alert("Erreur lors de la création du lien");
+      console.error("❌ Erreur finale:", error);
+      const errorMessage = error instanceof Error ? error.message : "Erreur lors de la création du lien";
+      alert(errorMessage);
     } finally {
       setCreating(null);
     }
-  };
-
-  const generateToken = () => {
-    return Array.from({ length: 32 }, () =>
-      Math.random().toString(36).charAt(2)
-    ).join("");
   };
 
   const copyToClipboard = async (text: string, type: string) => {

@@ -73,7 +73,20 @@ export function useAuth(options?: { redirectIfNotAuth?: boolean }) {
         return;
       }
 
+      // Vérifier le rôle dans la DB ET dans le JWT pour plus de sécurité
+      const jwtRole = authUser.app_metadata?.role || authUser.user_metadata?.role;
+      
       if (userData.role !== "DIRECTOR") {
+        console.error("Rôle invalide dans la DB:", userData.role);
+        await supabase.auth.signOut();
+        router.push("/login");
+        setLoading(false);
+        return;
+      }
+
+      // Vérification supplémentaire : le rôle dans le JWT doit correspondre
+      if (jwtRole && jwtRole !== "DIRECTOR") {
+        console.error("Rôle invalide dans le JWT:", jwtRole, "attendu: DIRECTOR");
         await supabase.auth.signOut();
         router.push("/login");
         setLoading(false);
