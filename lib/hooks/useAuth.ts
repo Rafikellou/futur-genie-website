@@ -52,10 +52,20 @@ export function useAuth(options?: { redirectIfNotAuth?: boolean }) {
         .from("users")
         .select("*")
         .eq("id", authUser.id)
-        .single();
+        .maybeSingle();
 
-      if (error || !userData) {
+      if (error) {
         console.error("Erreur de récupération utilisateur:", error);
+        console.error("Détails:", { code: error.code, message: error.message, details: error.details });
+        if (redirectIfNotAuth) {
+          router.push("/login");
+        }
+        setLoading(false);
+        return;
+      }
+
+      if (!userData) {
+        console.error("Aucune donnée utilisateur trouvée pour:", authUser.id);
         if (redirectIfNotAuth) {
           router.push("/login");
         }

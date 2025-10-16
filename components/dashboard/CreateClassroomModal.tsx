@@ -27,6 +27,21 @@ export function CreateClassroomModal({ schoolId, onClose, onCreated }: CreateCla
       console.log("🚀 Création de classe via Edge Function");
       console.log("Données:", { name, grade });
 
+      // Vérifier la session
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      console.log("Session:", { 
+        hasSession: !!session, 
+        userId: session?.user?.id,
+        error: sessionError 
+      });
+
+      if (!session) {
+        throw new Error("Pas de session active. Veuillez vous reconnecter.");
+      }
+
+      console.log("⏳ Appel de l'Edge Function...");
+      const startTime = Date.now();
+
       // Appeler l'Edge Function director_create_classroom
       const { data, error: functionError } = await supabase.functions.invoke('director_create_classroom', {
         body: {
@@ -35,8 +50,12 @@ export function CreateClassroomModal({ schoolId, onClose, onCreated }: CreateCla
         },
       });
 
+      const duration = Date.now() - startTime;
+      console.log(`⏱️ Durée de l'appel: ${duration}ms`);
+
       if (functionError) {
         console.error("❌ Erreur Edge Function:", functionError);
+        console.error("Détails complets:", JSON.stringify(functionError, null, 2));
         throw new Error(functionError.message || "Erreur lors de la création de la classe");
       }
 
