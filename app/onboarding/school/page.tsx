@@ -93,11 +93,14 @@ export default function SchoolOnboardingPage() {
       }
       console.log("✅ Session active:", session.user.id);
 
-      // Appeler l'Edge Function director_onboarding_complete
+      // Appeler l'Edge Function director_onboarding_complete avec le token explicite
       const { data, error } = await supabase.functions.invoke('director_onboarding_complete', {
         body: {
           schoolName: schoolName,
           fullName: currentUser.full_name
+        },
+        headers: {
+          Authorization: `Bearer ${session.access_token}`
         }
       });
 
