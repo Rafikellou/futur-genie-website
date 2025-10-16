@@ -14,11 +14,10 @@ interface InvitationLink {
 
 interface InvitationLinksModalProps {
   classroom: Classroom;
-  userId: string;
   onClose: () => void;
 }
 
-export function InvitationLinksModal({ classroom, userId, onClose }: InvitationLinksModalProps) {
+export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModalProps) {
   const [links, setLinks] = useState<InvitationLink[]>([]);
   const [loading, setLoading] = useState(true);
   const [creating, setCreating] = useState<UserRole | null>(null);

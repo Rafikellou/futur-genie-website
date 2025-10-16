@@ -10,8 +10,16 @@ interface School {
   created_at: string;
 }
 
+interface AuthUser {
+  id: string;
+  email?: string;
+  created_at?: string;
+  app_metadata?: Record<string, unknown>;
+  user_metadata?: Record<string, unknown>;
+}
+
 export default function DebugUserPage() {
-  const [authUser, setAuthUser] = useState<any>(null);
+  const [authUser, setAuthUser] = useState<AuthUser | null>(null);
   const [publicUser, setPublicUser] = useState<User | null>(null);
   const [school, setSchool] = useState<School | null>(null);
   const [loading, setLoading] = useState(true);
@@ -107,10 +115,10 @@ export default function DebugUserPage() {
               <strong>ID:</strong> {authUser.id}
             </div>
             <div style={{ marginBottom: "0.5rem" }}>
-              <strong>Email:</strong> {authUser.email}
+              <strong>email :</strong> {authUser.email}
             </div>
             <div style={{ marginBottom: "0.5rem" }}>
-              <strong>Created:</strong> {new Date(authUser.created_at).toLocaleString()}
+              <strong>created_at :</strong> {authUser.created_at}
             </div>
             <div style={{ marginBottom: "0.5rem" }}>
               <strong>Metadata:</strong>
@@ -121,7 +129,8 @@ export default function DebugUserPage() {
                 marginTop: "0.5rem",
                 overflow: "auto"
               }}>
-                {JSON.stringify(authUser.user_metadata, null, 2)}
+                <strong>app_metadata :</strong> {JSON.stringify(authUser.app_metadata, null, 2)}
+                <strong>user_metadata :</strong> {JSON.stringify(authUser.user_metadata, null, 2)}
               </pre>
             </div>
           </div>
@@ -217,11 +226,11 @@ export default function DebugUserPage() {
                 ⚠️ PROBLÈME DÉTECTÉ
               </p>
               <p className="body-sm" style={{ color: "#ef4444", marginTop: "0.5rem" }}>
-                Vous êtes un Director mais vous n'avez pas de school_id assigné.
-                C'est pourquoi vous ne pouvez pas créer de classes.
+                Vous êtes un Director mais vous n&apos;avez pas de school_id assigné.
+                C&apos;est pourquoi vous ne pouvez pas créer de classes.
               </p>
               <p className="body-sm" style={{ color: "#ef4444", marginTop: "0.5rem" }}>
-                <strong>Solution :</strong> Vous devez compléter l'onboarding sur <a href="/onboarding/school" style={{ textDecoration: "underline" }}>/onboarding/school</a>
+                <strong>Solution :</strong> Vous devez compléter l&apos;onboarding sur <a href="/onboarding/school" style={{ textDecoration: "underline" }}>/onboarding/school</a>
               </p>
             </div>
           )}
