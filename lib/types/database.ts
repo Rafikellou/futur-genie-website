@@ -32,5 +32,4 @@ export interface SignupFormData {
   email: string;
   password: string;
   fullName: string;
-  schoolName: string;
 }

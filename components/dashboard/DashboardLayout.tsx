@@ -4,16 +4,41 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/hooks/useAuth";
-import type { User } from "@/lib/types/database";
+import type { User, School } from "@/lib/types/database";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase/client";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
   user: User;
 }
 
-export function DashboardLayout({ children }: DashboardLayoutProps) {
+export function DashboardLayout({ children, user }: DashboardLayoutProps) {
   const pathname = usePathname();
   const { signOut } = useAuth();
+  const [school, setSchool] = useState<School | null>(null);
+
+  useEffect(() => {
+    // Récupérer les données de l'école
+    const loadSchool = async () => {
+      if (!user.school_id) return;
+
+      const { data, error } = await supabase
+        .from("schools")
+        .select("*")
+        .eq("id", user.school_id)
+        .single();
+
+      if (error) {
+        console.error("Erreur chargement école:", error);
+        return;
+      }
+
+      setSchool(data);
+    };
+
+    loadSchool();
+  }, [user.school_id]);
 
   const navItems = [
     { href: "/dashboard", label: "Accueil", icon: "🏠" },
@@ -49,13 +74,25 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               Futur Génie
             </span>
           </Link>
-          <button
-            onClick={signOut}
-            className="btn btn-secondary"
-            style={{ padding: "0.75rem 1.5rem" }}
-          >
-            Déconnexion
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+            {school && (
+              <div style={{ textAlign: "right" }}>
+                <div className="body-sm" style={{ color: "rgba(255,255,255,0.6)", marginBottom: "0.25rem" }}>
+                  École
+                </div>
+                <div className="body-md" style={{ color: "white", fontWeight: 600 }}>
+                  {school.name}
+                </div>
+              </div>
+            )}
+            <button
+              onClick={signOut}
+              className="btn btn-secondary"
+              style={{ padding: "0.75rem 1.5rem" }}
+            >
+              Déconnexion
+            </button>
+          </div>
         </div>
       </header>
 

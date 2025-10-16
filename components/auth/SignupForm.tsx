@@ -9,11 +9,9 @@ export function SignupForm() {
     email: "",
     password: "",
     fullName: "",
-    schoolName: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,21 +34,12 @@ export function SignupForm() {
       if (authError) throw authError;
       if (!authData.user) throw new Error("Erreur lors de la création du compte");
 
-      // 2. Créer l'école
-      const { data: schoolData, error: schoolError } = await supabase
-        .from("schools")
-        .insert([{ name: formData.schoolName }])
-        .select()
-        .single();
-
-      if (schoolError) throw schoolError;
-
-      // 3. Créer l'entrée dans public.users
+      // 2. Créer l'entrée dans public.users (sans school_id pour l'instant)
       const { error: userError } = await supabase.from("users").insert([
         {
           id: authData.user.id,
           role: "DIRECTOR",
-          school_id: schoolData.id,
+          school_id: null, // Sera rempli lors de l'onboarding
           email: formData.email,
           full_name: formData.fullName,
         },
@@ -58,7 +47,16 @@ export function SignupForm() {
 
       if (userError) throw userError;
 
-      setSuccess(true);
+      // 3. Connexion automatique et redirection vers onboarding
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (signInError) throw signInError;
+
+      // Redirection vers la page d'onboarding
+      window.location.href = "/onboarding/school";
     } catch (err) {
       console.error("Erreur d'inscription:", err);
       const errorMessage = err instanceof Error ? err.message : "Une erreur est survenue lors de l'inscription";
@@ -67,25 +65,6 @@ export function SignupForm() {
       setLoading(false);
     }
   };
-
-  if (success) {
-    return (
-      <div className="card card-glass" style={{ padding: "3rem", maxWidth: "500px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: "4rem", marginBottom: "1.5rem" }}>✅</div>
-          <h2 className="heading-md" style={{ marginBottom: "1rem" }}>
-            Compte créé avec succès !
-          </h2>
-          <p className="body-md text-muted" style={{ marginBottom: "2rem" }}>
-            Veuillez vérifier votre email pour confirmer votre compte.
-          </p>
-          <p className="body-sm text-muted">
-            Une fois confirmé, vous pourrez vous connecter depuis l&apos;application iOS.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="card card-glass" style={{ padding: "3rem", maxWidth: "500px", margin: "0 auto" }}>
@@ -107,23 +86,6 @@ export function SignupForm() {
             onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
             className="input-field"
             placeholder="Jean Dupont"
-            disabled={loading}
-          />
-        </div>
-
-        {/* Nom de l'école */}
-        <div>
-          <label htmlFor="schoolName" className="body-md" style={{ display: "block", marginBottom: "0.5rem", fontWeight: 600 }}>
-            Nom de l&apos;école
-          </label>
-          <input
-            type="text"
-            id="schoolName"
-            required
-            value={formData.schoolName}
-            onChange={(e) => setFormData({ ...formData, schoolName: e.target.value })}
-            className="input-field"
-            placeholder="École primaire Victor Hugo"
             disabled={loading}
           />
         </div>
