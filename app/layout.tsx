@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { HeaderV2 } from "@/components/layout/HeaderV2";
-import { FooterV2 } from "@/components/layout/FooterV2";
+import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 
 export const metadata: Metadata = {
   title: "Futur Génie - Construisons le potentiel de nos enfants",
@@ -17,9 +16,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <HeaderV2 />
-        <main style={{ paddingTop: "80px" }}>{children}</main>
-        <FooterV2 />
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );

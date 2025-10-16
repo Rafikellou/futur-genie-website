@@ -2,13 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase/client";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import type { User } from "@/lib/types/database";
 
-export function useAuth() {
+export function useAuth(options?: { redirectIfNotAuth?: boolean }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const redirectIfNotAuth = options?.redirectIfNotAuth ?? true;
 
   useEffect(() => {
     checkUser();
@@ -19,7 +21,10 @@ export function useAuth() {
           await checkUser();
         } else if (event === "SIGNED_OUT") {
           setUser(null);
-          router.push("/login");
+          // Ne rediriger que si on est sur une page protégée
+          if (pathname?.startsWith("/dashboard") || pathname?.startsWith("/onboarding")) {
+            router.push("/login");
+          }
         }
       }
     );
@@ -28,14 +33,18 @@ export function useAuth() {
       authListener.subscription.unsubscribe();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router]);
+  }, [router, pathname]);
 
   const checkUser = async () => {
     try {
       const { data: { user: authUser } } = await supabase.auth.getUser();
 
       if (!authUser) {
-        router.push("/login");
+        // Ne rediriger que si l'option est activée (par défaut true)
+        if (redirectIfNotAuth) {
+          router.push("/login");
+        }
+        setLoading(false);
         return;
       }
 
@@ -46,19 +55,27 @@ export function useAuth() {
         .single();
 
       if (error || !userData) {
-        throw error;
+        console.error("Erreur de récupération utilisateur:", error);
+        if (redirectIfNotAuth) {
+          router.push("/login");
+        }
+        setLoading(false);
+        return;
       }
 
       if (userData.role !== "DIRECTOR") {
         await supabase.auth.signOut();
         router.push("/login");
+        setLoading(false);
         return;
       }
 
       setUser(userData);
     } catch (error) {
       console.error("Erreur de vérification:", error);
-      router.push("/login");
+      if (redirectIfNotAuth) {
+        router.push("/login");
+      }
     } finally {
       setLoading(false);
     }
