@@ -5,14 +5,13 @@ import { supabase } from "@/lib/supabase/client";
 import type { GradeLevel } from "@/lib/types/database";
 
 interface CreateClassroomModalProps {
-  schoolId: string;
   onClose: () => void;
   onCreated: () => void;
 }
 
 const GRADES: GradeLevel[] = ["CP", "CE1", "CE2", "CM1", "CM2", "6EME", "5EME", "4EME", "3EME"];
 
-export function CreateClassroomModal({ schoolId, onClose, onCreated }: CreateClassroomModalProps) {
+export function CreateClassroomModal({ onClose, onCreated }: CreateClassroomModalProps) {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState<GradeLevel>("CP");
   const [loading, setLoading] = useState(false);

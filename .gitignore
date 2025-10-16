@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# supabase functions (deployed separately, not part of Next.js build)
+/supabase/functions/

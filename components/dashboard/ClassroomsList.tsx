@@ -97,7 +97,6 @@ export function ClassroomsList({ schoolId, userId }: ClassroomsListProps) {
       {/* Modal de création */}
       {showCreateModal && (
         <CreateClassroomModal
-          schoolId={schoolId}
           onClose={() => setShowCreateModal(false)}
           onCreated={handleClassroomCreated}
         />
