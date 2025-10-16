@@ -90,7 +90,6 @@ export function ClassroomCard({ classroom, userId, onDeleted, onUpdated }: Class
       {showInviteModal && (
         <InvitationLinksModal
           classroom={classroom}
-          userId={userId}
           onClose={() => setShowInviteModal(false)}
         />
       )}
