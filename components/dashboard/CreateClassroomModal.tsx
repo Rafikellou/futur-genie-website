@@ -24,20 +24,31 @@ export function CreateClassroomModal({ schoolId, onClose, onCreated }: CreateCla
     setError(null);
 
     try {
-      const { error: insertError } = await supabase
-        .from("classrooms")
-        .insert([
-          {
-            name,
-            grade,
-            school_id: schoolId,
-          },
-        ]);
+      console.log("🚀 Création de classe via Edge Function");
+      console.log("Données:", { name, grade });
 
-      if (insertError) throw insertError;
+      // Appeler l'Edge Function director_create_classroom
+      const { data, error: functionError } = await supabase.functions.invoke('director_create_classroom', {
+        body: {
+          name,
+          grade,
+        },
+      });
+
+      if (functionError) {
+        console.error("❌ Erreur Edge Function:", functionError);
+        throw new Error(functionError.message || "Erreur lors de la création de la classe");
+      }
+
+      if (data?.error) {
+        console.error("❌ Erreur retournée par la fonction:", data.error);
+        throw new Error(data.error);
+      }
+
+      console.log("✅ Classe créée avec succès:", data);
       onCreated();
     } catch (err) {
-      console.error("Erreur de création:", err);
+      console.error("❌ Erreur finale:", err);
       const errorMessage = err instanceof Error ? err.message : "Erreur lors de la création";
       setError(errorMessage);
     } finally {
