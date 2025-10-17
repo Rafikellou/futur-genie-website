@@ -17,6 +17,21 @@ const nextConfig: NextConfig = {
     // Ignorer les erreurs ESLint pendant le build (temporaire)
     ignoreDuringBuilds: false,
   },
+
+  // Support multi-domaines
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

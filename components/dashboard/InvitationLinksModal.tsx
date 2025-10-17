@@ -34,6 +34,7 @@ export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModa
         .select("*")
         .eq("classroom_id", classroom.id)
         .is("used_at", null)
+        .gt("expires_at", new Date().toISOString())
         .order("created_at", { ascending: false });
 
       if (error) throw error;
@@ -90,6 +91,11 @@ export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModa
       console.error("Erreur de copie:", error);
       alert("Erreur lors de la copie");
     }
+  };
+
+  const getInvitationMessage = (token: string, role: UserRole) => {
+    const roleLabel = getRoleLabel(role).toLowerCase();
+    return `Bonjour, vous pouvez télécharger l'appli Futur Génie sur App Store / Google Play et créer un compte de type ${roleLabel} lié à la classe ${classroom.name} en introduisant le jeton secret suivant : ${token}`;
   };
 
   const getFullLink = (token: string) => {
@@ -155,11 +161,34 @@ export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModa
     >
       <div
         className="card card-glass"
-        style={{ padding: "2.5rem", maxWidth: "700px", width: "100%", maxHeight: "90vh", overflowY: "auto" }}
+        style={{ padding: "2.5rem", maxWidth: "700px", width: "100%", maxHeight: "90vh", overflowY: "auto", position: "relative" }}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Bouton X discret */}
+        <button
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: "1rem",
+            right: "1rem",
+            background: "transparent",
+            border: "none",
+            color: "var(--text-muted)",
+            cursor: "pointer",
+            fontSize: "1.5rem",
+            padding: "0.5rem",
+            lineHeight: 1,
+            opacity: 0.6,
+            transition: "opacity 0.2s",
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = "1"}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = "0.6"}
+        >
+          ×
+        </button>
+
         <h2 className="heading-md" style={{ marginBottom: "0.5rem" }}>
-          Liens d&apos;invitation
+          Créer un lien d&apos;invitation
         </h2>
         <p className="body-md text-muted" style={{ marginBottom: "2rem" }}>
           {classroom.name} - {classroom.grade}
@@ -167,14 +196,11 @@ export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModa
 
         {/* Boutons de création */}
         <div style={{ marginBottom: "2rem" }}>
-          <p className="body-sm" style={{ marginBottom: "1rem", fontWeight: 600 }}>
-            Créer un nouveau lien :
-          </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
             <button
               onClick={() => createLink("TEACHER")}
               disabled={creating !== null}
-              className="btn btn-secondary"
+              className="btn btn-primary"
               style={{ flex: 1, minWidth: "150px" }}
             >
               {creating === "TEACHER" ? "..." : "👨‍🏫 Enseignant"}
@@ -182,10 +208,10 @@ export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModa
             <button
               onClick={() => createLink("PARENT")}
               disabled={creating !== null}
-              className="btn btn-secondary"
+              className="btn btn-primary"
               style={{ flex: 1, minWidth: "150px" }}
             >
-              {creating === "PARENT" ? "..." : "👨‍👩‍👧 Parent"}
+              {creating === "PARENT" ? "..." : "👨‍👩‍👧 Élève"}
             </button>
           </div>
         </div>
@@ -261,10 +287,10 @@ export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModa
                     </div>
                   </div>
 
-                  {/* Token seul */}
+                  {/* Jeton secret seul */}
                   <div>
                     <div className="body-sm text-muted" style={{ marginBottom: "0.5rem" }}>
-                      Token uniquement :
+                      Jeton secret uniquement :
                     </div>
                     <div style={{ display: "flex", gap: "0.5rem" }}>
                       <input
@@ -275,9 +301,38 @@ export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModa
                         style={{ flex: 1, fontSize: "0.875rem", padding: "0.75rem" }}
                       />
                       <button
-                        onClick={() => copyToClipboard(link.token, "Token")}
+                        onClick={() => copyToClipboard(link.token, "Jeton secret")}
                         className="btn btn-secondary"
                         style={{ padding: "0.75rem 1.5rem", whiteSpace: "nowrap" }}
+                      >
+                        📋 Copier
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Message à copier */}
+                  <div>
+                    <div className="body-sm text-muted" style={{ marginBottom: "0.5rem" }}>
+                      Message à envoyer :
+                    </div>
+                    <div style={{ display: "flex", gap: "0.5rem" }}>
+                      <textarea
+                        value={getInvitationMessage(link.token, link.intended_role)}
+                        readOnly
+                        className="input-field"
+                        style={{ 
+                          flex: 1, 
+                          fontSize: "0.875rem", 
+                          padding: "0.75rem",
+                          minHeight: "80px",
+                          resize: "vertical",
+                          fontFamily: "inherit"
+                        }}
+                      />
+                      <button
+                        onClick={() => copyToClipboard(getInvitationMessage(link.token, link.intended_role), "Message")}
+                        className="btn btn-secondary"
+                        style={{ padding: "0.75rem 1.5rem", whiteSpace: "nowrap", alignSelf: "flex-start" }}
                       >
                         📋 Copier
                       </button>
@@ -294,12 +349,6 @@ export function InvitationLinksModal({ classroom, onClose }: InvitationLinksModa
           )}
         </div>
 
-        {/* Bouton fermer */}
-        <div style={{ marginTop: "2rem" }}>
-          <button onClick={onClose} className="btn btn-secondary" style={{ width: "100%" }}>
-            Fermer
-          </button>
-        </div>
       </div>
     </div>
   );

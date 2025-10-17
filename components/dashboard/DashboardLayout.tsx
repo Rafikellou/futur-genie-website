@@ -45,6 +45,10 @@ export function DashboardLayout({ children, user }: DashboardLayoutProps) {
     { href: "/dashboard/classes", label: "Classes", icon: "🎓" },
   ];
 
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   return (
     <div style={{ minHeight: "100vh", background: "var(--primary-blue)" }}>
       {/* Header */}
@@ -86,7 +90,7 @@ export function DashboardLayout({ children, user }: DashboardLayoutProps) {
               </div>
             )}
             <button
-              onClick={signOut}
+              onClick={handleSignOut}
               className="btn btn-secondary"
               style={{ padding: "0.75rem 1.5rem" }}
             >
@@ -126,6 +130,36 @@ export function DashboardLayout({ children, user }: DashboardLayoutProps) {
                   </Link>
                 );
               })}
+              
+              {/* Lien vers le site vitrine */}
+              <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+                <Link
+                  href="/"
+                  className="body-sm"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.75rem",
+                    padding: "0.75rem 1rem",
+                    borderRadius: "var(--radius-md)",
+                    textDecoration: "none",
+                    color: "rgba(255,255,255,0.5)",
+                    background: "transparent",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "rgba(255,255,255,0.8)";
+                    e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "rgba(255,255,255,0.5)";
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <span style={{ fontSize: "1rem" }}>←</span>
+                  Site vitrine
+                </Link>
+              </div>
             </nav>
           </div>
         </aside>

@@ -23,7 +23,7 @@ export function useAuth(options?: { redirectIfNotAuth?: boolean }) {
           setUser(null);
           // Ne rediriger que si on est sur une page protégée
           if (pathname?.startsWith("/dashboard") || pathname?.startsWith("/onboarding")) {
-            router.push("/login");
+            router.push("/");
           }
         }
       }
@@ -106,7 +106,7 @@ export function useAuth(options?: { redirectIfNotAuth?: boolean }) {
 
   const signOut = async () => {
     await supabase.auth.signOut();
-    router.push("/login");
+    router.push("/");
   };
 
   return { user, loading, signOut };

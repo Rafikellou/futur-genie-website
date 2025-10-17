@@ -90,7 +90,7 @@ export function HeaderV2() {
         >
           {/* Logo */}
           <Link 
-            href={user ? "/dashboard" : "/"} 
+            href="/" 
             style={{ 
               textDecoration: "none",
               display: "flex",
@@ -120,7 +120,7 @@ export function HeaderV2() {
                 // Menu pour utilisateurs connectés
                 <>
                   <Link
-                    href="/dashboard"
+                    href="/#features"
                     className="body-md"
                     style={{
                       color: "rgba(255, 255, 255, 0.8)",
@@ -128,10 +128,10 @@ export function HeaderV2() {
                       transition: "color 0.2s",
                     }}
                   >
-                    Tableau de bord
+                    Fonctionnalités
                   </Link>
                   <Link
-                    href="/dashboard/classes"
+                    href="/#pricing"
                     className="body-md"
                     style={{
                       color: "rgba(255, 255, 255, 0.8)",
@@ -139,20 +139,22 @@ export function HeaderV2() {
                       transition: "color 0.2s",
                     }}
                   >
-                    Classes
+                    Tarifs
                   </Link>
-                  <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                    <span className="body-sm" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
-                      {user.full_name}
-                    </span>
-                    <button
-                      onClick={signOut}
-                      className="btn btn-secondary"
-                      style={{ padding: "0.75rem 1.5rem" }}
-                    >
-                      Déconnexion
-                    </button>
-                  </div>
+                  <Link
+                    href="/#faq"
+                    className="body-md"
+                    style={{
+                      color: "rgba(255, 255, 255, 0.8)",
+                      textDecoration: "none",
+                      transition: "color 0.2s",
+                    }}
+                  >
+                    FAQ
+                  </Link>
+                  <Link href="/dashboard" className="btn btn-primary" style={{ padding: "0.75rem 1.5rem" }}>
+                    Mon compte
+                  </Link>
                 </>
               ) : (
                 // Menu pour visiteurs
